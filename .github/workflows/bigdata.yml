@@ -1,0 +1,36 @@
+name: Ingestión de Datos Automática
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * *' # Se ejecuta diario (opcional)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout del repositorio
+      uses: actions/checkout@v3
+
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Instalar dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .
+
+    - name: Ejecutar script de ingesta
+      run: python src/ingestion.py
+
+    - name: Subir artefactos (Evidencias)
+      uses: actions/upload-artifact@v3
+      with:
+        name: evidencias-ingesta
+        path: |
+          src/db/
+          src/static/auditoria/
+          src/xlsx/
