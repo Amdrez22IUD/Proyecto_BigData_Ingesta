@@ -27,7 +27,7 @@ jobs:
       run: python src/ingestion.py
 
     - name: Subir artefactos (Evidencias)
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: evidencias-ingesta
         path: |
