@@ -7,7 +7,7 @@ import os
 API_URL = "https://jsonplaceholder.typicode.com/todos"
 DB_PATH = "src/db/ingestion.db"
 LOG_PATH = "src/static/auditoria/ingestion.txt"
-XLSX_PATH = "src/xlsx/ingestion.xlsx"
+XLSX_PATH = "src/xlsx/ingestion_sample.xlsx"
 
 def asegurar_directorios():
     """Crea las carpetas necesarias si no existen."""
