@@ -1,0 +1,9 @@
+=== REPORTE DE AUDITORÍA DE LIMPIEZA ===
+Registros antes de limpieza: 200
+Registros después de limpieza: 200
+
+Operaciones realizadas:
+- Se verificó y eliminó registros duplicados.
+- Se aplicó manejo de valores nulos (fillna).
+- Se corrigió el tipo de dato de la columna 'completed' a booleano.
+- Se normalizó la columna 'title' a formato Capitalizado.
