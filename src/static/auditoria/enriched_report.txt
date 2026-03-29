@@ -1,0 +1,10 @@
+=== REPORTE DE AUDITORÍA DE ENRIQUECIMIENTO ===
+Registros en dataset base: 200
+Registros en dataset enriquecido: 200
+
+Operaciones de cruce e integración realizadas:
+- Left Join con users.json usando 'userId' (Nuevas columnas: userName, email)
+- Left Join con locations.csv usando 'userId' (Nueva columna: country)
+- Left Join con priorities.txt usando 'id' (Nueva columna: priority)
+
+Observaciones: La integración se realizó exitosamente agregando 4 columnas nuevas de 3 formatos distintos, sin pérdida de registros base.

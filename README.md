@@ -1,37 +1,31 @@
 # Proyecto Integrador Big Data — EA1 (Ingestión) y EA2 (Preprocesamiento)
 
+# Proyecto Integrador Big Data — Pipeline Completo (EA1, EA2 y EA3)
+
 ## 1. Descripción de la Solución
-
-Este proyecto implementa las etapas de **Ingesta de Datos** y **Preprocesamiento y Limpieza** en un entorno que simula una plataforma de Big Data en la nube.
-
-La solución automatiza el siguiente flujo:
-* **Fase 1 (Ingesta):** Extracción de información desde una API externa y su almacenamiento en una base de datos analítica SQLite (simulando el entorno cloud).
-* **Fase 2 (Limpieza):** Análisis exploratorio, eliminación de duplicados, manejo de valores nulos, corrección de tipos de datos y estandarización utilizando Pandas.
-* **Fase 3 (Evidencias):** Generación de archivos de auditoría y muestras en Excel para garantizar la trazabilidad de los datos limpios.
+Este proyecto implementa un pipeline de datos completo simulando un entorno de Big Data en la nube. Automatiza el ciclo de vida del dato en tres fases:
+1. **Fase 1 (Ingesta):** Extracción desde API externa a una base de datos SQLite.
+2. **Fase 2 (Limpieza):** Preprocesamiento, manejo de nulos y estandarización con Pandas.
+3. **Fase 3 (Enriquecimiento):** Integración (Merge/Join) del dataset limpio con múltiples fuentes adicionales de datos (JSON, CSV, TXT) para generar un dataset enriquecido de alto valor.
 
 ---
 
 ## 2. Estructura del Proyecto
-
-El repositorio sigue la siguiente estructura jerárquica:
-
+El repositorio contiene la siguiente arquitectura:
 ```text
 [PROYECTO_BIGDATA]
 ├── .github/workflows/
-│   └── bigdata.yml             # Configuración de automatización (GitHub Actions)
+│   └── bigdata.yml             # Automatización CI/CD
 ├── src/
-│   ├── ingestion.py            # Script EA1: conexión, extracción y carga
-│   ├── cleaning.py             # Script EA2: preprocesamiento y limpieza
-│   ├── db/
-│   │   └── ingestion.db        # Base de datos SQLite (Simulación Nube)
-│   ├── static/auditoria/
-│   │   ├── ingestion.txt       # Reporte de auditoría de ingesta
-│   │   └── cleaning_report.txt # Reporte de impacto de la limpieza
-│   └── xlsx/
-│       ├── ingestion.xlsx      # Muestra de registros de ingesta
-│       └── cleaned_data.xlsx   # Muestra representativa de datos limpios
+│   ├── ingestion.py            # Script EA1
+│   ├── cleaning.py             # Script EA2
+│   ├── enrichment.py           # Script EA3
+│   ├── db/                     # Base de datos SQLite
+│   ├── data/                   # Fuentes de datos crudas (JSON, CSV, TXT)
+│   ├── static/auditoria/       # Reportes de calidad en cada fase
+│   └── xlsx/                   # Datasets exportados en Excel
 ├── setup.py                    # Gestión de dependencias
-└── README.md                   # Trazabilidad y documentación del proceso
+└── README.md                   # Documentación principal
 ```
 
 ---
